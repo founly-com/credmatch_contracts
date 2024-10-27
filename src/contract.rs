@@ -34,7 +34,7 @@ pub fn instantiate(
 ) -> Result<Response, ContractError> {
     set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
 
-    if msg.unit_price != Uint128::new(0) {
+    if msg.unit_price == Uint128::new(0) {
         return Err(ContractError::InvalidUnitPrice {});
     }
 
